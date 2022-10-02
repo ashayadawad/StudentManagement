@@ -1,0 +1,35 @@
+﻿@model StudentManagement.Models.StudentViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table">
+    <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Course</th>
+    <th>Fees</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.students)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Gender</td>
+                <td>@item.Course</td>
+                <td>@item.Fees</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditStudent", "Student", new { Id = item.Id }) |
+                    @Html.ActionLink("View", "ViewStudent", "Student", new { Id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteStudent", "Student", new { Id = item.Id }) |
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
